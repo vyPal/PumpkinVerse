@@ -1,0 +1,20 @@
+[package]
+name = "hello-pumpkin"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+pumpkin = { git = "https://github.com/vyPal/Pumpkin.git", branch = "plugins", package = "pumpkin" } 
+pumpkin-util = { git = "https://github.com/vyPal/Pumpkin.git", branch = "plugins", package = "pumpkin-util" }
+pumpkin-data = { git = "https://github.com/vyPal/Pumpkin.git", branch = "plugins", package = "pumpkin-data" }
+pumpkin-protocol = { git = "https://github.com/vyPal/Pumpkin.git", branch = "plugins", package = "pumpkin-protocol" }
+pumpkin-api-macros = { git = "https://github.com/vyPal/Pumpkin.git", branch = "plugins", package = "pumpkin-api-macros" }
+
+async-trait = "0.1.83"
+tokio = { version = "1.42", features = [ "full" ] }
+
+env_logger = "0.11.6"
+log = "0.4.22"
