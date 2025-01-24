@@ -1,8 +1,12 @@
 use pumpkin::plugin::Context;
+use pumpkin::world::World;
 use pumpkin_api_macros::{plugin_impl, plugin_method};
+use pumpkin_registry::DimensionType;
+use pumpkin_world::dimension::Dimension;
 use serde::{Deserialize, Serialize};
 use std::io::{Read, Write};
 use std::path::Path;
+use std::sync::Arc;
 
 #[plugin_method]
 async fn on_load(&mut self, context: &Context) -> Result<(), String> {
@@ -24,6 +28,28 @@ async fn on_load(&mut self, context: &Context) -> Result<(), String> {
     }
 
     log::info!("PumpkinVerse config loaded!");
+    log::debug!("World folder: {}", self.world_folder);
+    log::info!("Loading worlds...");
+
+    let world_folder = Path::new(&self.world_folder);
+    if !world_folder.exists() {
+        std::fs::create_dir(&world_folder).map_err(|e| e.to_string())?;
+    }
+
+    {
+        let mut worlds = context.server.worlds.write().await;
+        for name in self.managed_worlds.iter() {
+            let world_folder = world_folder.join(name);
+            let world = World::load(
+                Dimension::OverWorld.into_level(world_folder),
+                DimensionType::OverWorld,
+            );
+
+            worlds.push(world);
+        }
+    }
+
+    log::info!("Worlds loaded!");
 
     Ok(())
 }
