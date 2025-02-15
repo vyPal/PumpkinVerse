@@ -1,5 +1,5 @@
 [package]
-name = "hello-pumpkin"
+name = "pumpkinverse"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,13 +7,14 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-pumpkin = { git = "https://github.com/vyPal/Pumpkin.git", branch = "plugins", package = "pumpkin" }
-pumpkin-util = { git = "https://github.com/vyPal/Pumpkin.git", branch = "plugins", package = "pumpkin-util" }
-pumpkin-world = { git = "https://github.com/vyPal/Pumpkin.git", branch = "plugins", package = "pumpkin-world" }
-pumpkin-registry = { git = "https://github.com/vyPal/Pumpkin.git", branch = "plugins", package = "pumpkin-registry" }
-pumpkin-data = { git = "https://github.com/vyPal/Pumpkin.git", branch = "plugins", package = "pumpkin-data" }
-pumpkin-protocol = { git = "https://github.com/vyPal/Pumpkin.git", branch = "plugins", package = "pumpkin-protocol" }
-pumpkin-api-macros = { git = "https://github.com/vyPal/Pumpkin.git", branch = "plugins", package = "pumpkin-api-macros" }
+pumpkin = { git = "https://github.com/Pumpkin-MC/Pumpkin.git", branch = "master", package = "pumpkin" }
+pumpkin-util = { git = "https://github.com/Pumpkin-MC/Pumpkin.git", branch = "master", package = "pumpkin-util" }
+pumpkin-config = { git = "https://github.com/Pumpkin-MC/Pumpkin.git", branch = "master", package = "pumpkin-config" }
+pumpkin-world = { git = "https://github.com/Pumpkin-MC/Pumpkin.git", branch = "master", package = "pumpkin-world" }
+pumpkin-registry = { git = "https://github.com/Pumpkin-MC/Pumpkin.git", branch = "master", package = "pumpkin-registry" }
+pumpkin-data = { git = "https://github.com/Pumpkin-MC/Pumpkin.git", branch = "master", package = "pumpkin-data" }
+pumpkin-protocol = { git = "https://github.com/Pumpkin-MC/Pumpkin.git", branch = "master", package = "pumpkin-protocol" }
+pumpkin-api-macros = { git = "https://github.com/Pumpkin-MC/Pumpkin.git", branch = "master", package = "pumpkin-api-macros" }
 
 async-trait = "0.1.83"
 tokio = { version = "1.42", features = ["full"] }
